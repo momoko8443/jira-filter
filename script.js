@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         JIRA Filter
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       You
 // @match        https://atcswa-cr-atlassian.mcloud.entsvcs.com/jira/*
