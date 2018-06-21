@@ -15,7 +15,14 @@
     setTimeout(function(){
         $('#js-work-quickfilters').append('<dd><select id="assigneeSelect"><option value="all">--- all ---</option></select><dd>');
         $('#js-work-quickfilters').append('<dd id="pointsSummary"></dd>');
+        $('#js-work-quickfilters').append('<button id="refreshBtn">refresh</button>');
+        $('#refreshBtn').click(function(){
+            refresh();
+        });
         $('#assigneeSelect').change(function(){
+            refresh();
+        });
+        function refresh(){
             var selectedAssignee = $('#assigneeSelect option:selected').val();
             $('.js-detailview').each(function(){
                 if(selectedAssignee === 'all'){
@@ -29,7 +36,7 @@
                 $(this).parent().parent().show();
             });
             calculatePoints();
-        });
+        }
         loadAssignees().then(function(list){
             for(var i in list){
                 $('#assigneeSelect').append('<option value="'+list[i]+'">'+list[i]+'</option>');
